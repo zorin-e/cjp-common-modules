@@ -2,14 +2,12 @@ import { Suggestions, DadataService } from "@/infrastructure/Suggestions";
 import mockAxios from "axios";
 
 afterEach(() => {
-  //@ts-ignore
   mockAxios.post.mockClear();
 });
 
 describe("Suggestions dadata", () => {
   it("request should return suggestions", async () => {
     const suggestions = [{ value: 'АО "ОТП"' }, { value: 'АО "ОТП БАНК"' }];
-    //@ts-ignore
     mockAxios.post.mockResolvedValue({
       data: { suggestions }
     });

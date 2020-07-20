@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ES2019",
     "module": "commonjs",
     "strict": true,
     "importHelpers": true,
@@ -25,15 +25,11 @@
     "paths": {
       "@/*": [
         "src/*"
-      ],
-      "@tests/*": [
-        "tests/*"
       ]
     },
   },
   "include": [
-    "src/**/*.ts",
-    "tests/**/*.ts"
+    "src/*"
   ],
   "exclude": [
     "node_modules"
