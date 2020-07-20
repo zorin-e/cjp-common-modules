@@ -25,11 +25,15 @@
     "paths": {
       "@/*": [
         "src/*"
+      ],
+      "@tests/*": [
+        "tests/*"
       ]
-    }
+    },
   },
   "include": [
-    "src/app.ts"
+    "src/**/*.ts",
+    "tests/**/*.ts"
   ],
   "exclude": [
     "node_modules"
