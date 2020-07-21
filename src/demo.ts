@@ -7,7 +7,7 @@ if (module.hot) {
 (async () => {
   const suggestions = new Suggestions(
     new DadataService({
-      apiKey: process.env.DADATA_API_KEY
+      apiKey: process.env.DADATA_KEY
     })
   );
 
