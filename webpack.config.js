@@ -1,6 +1,12 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const dotenv = require('dotenv').config({
+  path: path.join(__dirname, '.env')
+});
+
+console.log(dotenv);
+const webpack = require('webpack');
 
 const mode = process.env.NODE_ENV;
 const isDev = mode === 'development';
@@ -26,7 +32,10 @@ const config = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(dotenv.parsed)
+    })
   ],
   resolve: {
     alias: {
