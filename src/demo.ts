@@ -1,5 +1,5 @@
 import { Suggestions, DadataService } from "@/infrastructure/Suggestions";
-import { ApiService, AxiosClient } from "./app";
+import { HttpTransport, AxiosClient } from "./app";
 
 if (module.hot) {
   module.hot.accept();
@@ -15,7 +15,7 @@ if (module.hot) {
   const { data } = await suggestions.value({ query: "ОТП", resource: "party" });
   console.log(data);
 
-  const transport = new ApiService(
+  const transport = new HttpTransport(
     new AxiosClient({
       headers: {
         accept: "application/json",

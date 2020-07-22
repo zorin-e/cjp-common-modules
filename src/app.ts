@@ -6,6 +6,6 @@ export {
 } from "@/infrastructure/Suggestions"
 
 export {
-  ApiService,
+  HttpTransport,
   AxiosClient
-} from "@/infrastructure/ApiService"
+} from "@/infrastructure/HttpTransport"
