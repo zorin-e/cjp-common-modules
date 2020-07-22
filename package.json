@@ -1,34 +1,35 @@
 {
-  "name": "@otp/base-modules",
+  "name": "@otp/cjp-common-modules",
   "version": "1.0.0",
-  "description": "Webpack simple boilerplate with css modules and dev server",
+  "description": "",
   "main": "dist/app.js",
   "types": "dist/app.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV=development webpack-dev-server",
-    "build": "NODE_ENV=production webpack"
+    "build": "NODE_ENV=production webpack",
+    "test:unit": "jest"
   },
-  "keywords": [
-    "webpack",
-    "js",
-    "boilerplate"
-  ],
   "author": {
     "name": "Egor Zorin",
-    "email": "zorinj@gmail.com",
-    "url": "https://github.com/zorin-e"
+    "email": "e.zorin@otpbank.ru",
+    "url": "git@bitbucket.isb:443/pos/cjpartners-common-modules.git"
   },
   "license": "ISC",
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
     "@types/jest": "^26.0.4",
     "@types/webpack-env": "^1.15.2",
     "@typescript-eslint/eslint-plugin": "^3.6.0",
     "@typescript-eslint/parser": "^3.6.0",
+    "babel-jest": "^26.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "dotenv": "^8.2.0",
     "eslint": "^7.4.0",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^26.1.0",
     "ts-declaration-webpack-plugin": "^1.2.3",
+    "ts-jest": "^26.1.3",
     "ts-loader": "^8.0.0",
     "typescript": "^3.9.6",
     "webpack": "^4.41.5",
