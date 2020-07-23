@@ -2,19 +2,15 @@ import { AxiosInstance, AxiosResponse, AxiosRequestConfig, Method } from "axios"
 import CJResponse from './CJResponse';
 import axios from "axios";
 import { CJRequest } from './CJRequest.interface';
-import { CJRequestHeaders } from './CJRequestHeaders.interface';
 import { CJRequestParams } from './CJRequestParams.interface';
 
 export default class AxiosClient implements CJRequest {
-
   private client: AxiosInstance
 
-  constructor({ headers }: { headers: CJRequestHeaders }) {
+  constructor({ headers }: { headers: object | undefined }) {
     this.client = axios.create({
       headers: {
-        Accept: headers.accept,
-        "Content-Type": headers.contentType,
-        Authorization: headers.authorization || ''
+        ...headers
       }
     });
   }
