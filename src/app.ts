@@ -3,9 +3,11 @@ export {
   SuggestQuery,
   Suggestions,
   DadataService
-} from "@/infrastructure/Suggestions"
+} from "./infrastructure/Suggestions"
 
 export {
   HttpTransport,
-  AxiosClient
-} from "@/infrastructure/HttpTransport"
+  AxiosClient,
+  CJHttpTransport,
+  CJResponseFormat
+} from "./infrastructure/HttpTransport"

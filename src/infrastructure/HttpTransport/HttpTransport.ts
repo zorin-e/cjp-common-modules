@@ -1,9 +1,9 @@
 import CJResponse from './CJResponse';
 import { CJRequest } from './CJRequest.interface';
 import { CJRequestParams } from './CJRequestParams.interface';
-import { HttpTransport } from './HttpTransport.interface';
+import CJHttpTransport from './CJHttpTransport.interface';
 
-export default class ApiService implements HttpTransport {
+export default class HttpTransport implements CJHttpTransport {
   private client: CJRequest;
 
   constructor(client: CJRequest) {

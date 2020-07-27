@@ -1,4 +1,4 @@
-import { CJResponseFormat } from './CJResponseFormat.interface';
+import CJResponseFormat from './CJResponseFormat.interface';
 
 export default class CJResponse implements CJResponseFormat {
     readonly status: number;
