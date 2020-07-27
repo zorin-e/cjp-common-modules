@@ -1,6 +1,6 @@
-import CJResponseFormat from './CJResponseFormat.interface';
+import { ResponseFormatInterface } from './ResponseFormat.interface'
 
-export default class CJResponse implements CJResponseFormat {
+export class Response implements ResponseFormatInterface {
     readonly status: number;
     readonly payload: object;
     constructor(status: number, payload: object) {
