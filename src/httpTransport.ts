@@ -1,24 +1,19 @@
 import { HttpTransport, AxiosClient } from "./app";
 import { PayloadInterface } from './infrastructure/Payload.interface';
+import { HttpParamsInterface } from './infrastructure/HttpTransport';
 
 const transport: HttpTransport = new HttpTransport(
     new AxiosClient({
-      headers: {
         accept: "application/json",
         contentType: "application/json"
-      }
     })
   )
 
-export default function(params: PayloadInterface = {
+export default function(params: HttpParamsInterface = {
   accept: "application/json",
   contentType: "application/json"
 }) {
   return new HttpTransport(
-    new AxiosClient({
-      headers: {
-        ...params
-      }
-    })
+    new AxiosClient(params)
   )
 };

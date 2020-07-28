@@ -3,15 +3,17 @@ import { Response } from './Response';
 import axios from "axios";
 import { RequestInterface } from './Request.interface';
 import { RequestParamsInterface } from './RequestParams.interface';
-import { ResponseFormatInterface } from '.';
+import { ResponseFormatInterface, HttpParamsInterface } from '.';
 
 export class AxiosClient implements RequestInterface {
   private client: AxiosInstance
 
-  constructor({ headers }: { headers: object | undefined }) {
+  constructor(headers: HttpParamsInterface) {
     this.client = axios.create({
       headers: {
-        ...headers
+        'Accept': headers.accept,
+        'Content-Type': headers.contentType,
+        'Authorization': headers.authorization
       }
     });
   }

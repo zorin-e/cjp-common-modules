@@ -12,7 +12,8 @@ export {
   HttpTransportInterface,
   RequestInterface,
   RequestParamsInterface,
-  Response
+  Response,
+  HttpParamsInterface
 } from "./infrastructure/HttpTransport"
 
 export {
