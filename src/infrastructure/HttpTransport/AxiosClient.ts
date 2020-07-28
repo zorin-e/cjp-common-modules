@@ -1,21 +1,24 @@
 import { AxiosInstance, AxiosResponse, AxiosRequestConfig, Method } from "axios";
-import CJResponse from './CJResponse';
+import { Response } from './Response';
 import axios from "axios";
-import { CJRequest } from './CJRequest.interface';
-import { CJRequestParams } from './CJRequestParams.interface';
+import { RequestInterface } from './Request.interface';
+import { RequestParamsInterface } from './RequestParams.interface';
+import { ResponseFormatInterface, HttpParamsInterface } from '.';
 
-export default class AxiosClient implements CJRequest {
+export class AxiosClient implements RequestInterface {
   private client: AxiosInstance
 
-  constructor({ headers }: { headers: object | undefined }) {
+  constructor(headers: HttpParamsInterface) {
     this.client = axios.create({
       headers: {
-        ...headers
+        'Accept': headers.accept,
+        'Content-Type': headers.contentType,
+        'Authorization': headers.authorization
       }
     });
   }
 
-  async request(params: CJRequestParams) : Promise<CJResponse> {
+  async request(params: RequestParamsInterface) : Promise<ResponseFormatInterface> {
     let _method: string = params.method || 'get';
     let _payload: object | undefined = _method === 'get' ? { params: params.payload } : params.payload;
     let _request: AxiosRequestConfig = {
@@ -25,6 +28,6 @@ export default class AxiosClient implements CJRequest {
     }
 
     const _response: AxiosResponse = await this.client.request(_request);
-    return new CJResponse(_response.status, _response.data);
+    return new Response(_response.status, _response.data);
   }
 }

@@ -1,5 +1,5 @@
 
-export interface CJRequestParams {
+export interface RequestParamsInterface {
     url: string;
     method?: string;
     payload?: object;

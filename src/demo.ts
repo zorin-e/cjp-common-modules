@@ -1,5 +1,5 @@
 import { Suggestions, DadataService } from "@/infrastructure/Suggestions";
-import { HttpTransport, AxiosClient } from "./app";
+import transportCreator from './httpTransport';
 
 if (module.hot) {
   module.hot.accept();
@@ -12,17 +12,13 @@ if (module.hot) {
     })
   );
 
+  const transport = transportCreator();
+
   const { data } = await suggestions.value({ query: "ОТП", resource: "party" });
   console.log(data);
 
-  const transport = new HttpTransport(
-    new AxiosClient({
-      headers: {
-        accept: "application/json",
-        contentType: "application/json"
-      }
-    })
-  )
+
+
   const posts = await transport.get({ url: 'http://jsonplaceholder.typicode.com/posts/1' })
   console.log("gettedPosts", posts);
 
@@ -34,6 +30,8 @@ if (module.hot) {
 
   const newPost = await transport.post({ url: 'http://jsonplaceholder.typicode.com/posts', payload: { title: "title" } })
   console.log("newPost:", newPost);
+
+
 
 // using modules ...
 })();

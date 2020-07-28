@@ -1,28 +1,28 @@
-import CJResponse from './CJResponse';
-import { CJRequest } from './CJRequest.interface';
-import { CJRequestParams } from './CJRequestParams.interface';
-import CJHttpTransport from './CJHttpTransport.interface';
+import { RequestInterface } from './Request.interface';
+import { RequestParamsInterface } from './RequestParams.interface';
+import { HttpTransportInterface } from './HttpTransport.interface';
+import { ResponseFormatInterface } from '.';
 
-export default class HttpTransport implements CJHttpTransport {
-  private client: CJRequest;
+export class HttpTransport implements HttpTransportInterface {
+  private client: RequestInterface;
 
-  constructor(client: CJRequest) {
+  constructor(client: RequestInterface) {
     this.client = client;
   }
 
-  get(params: CJRequestParams): Promise<CJResponse> {
+  get(params: RequestParamsInterface): Promise<ResponseFormatInterface> {
     return this.client.request({ ...params, ...{method: 'get'}});
   }
 
-  post(params: CJRequestParams): Promise<CJResponse> {
+  post(params: RequestParamsInterface): Promise<ResponseFormatInterface> {
     return this.client.request({ ...params, ...{method: 'post'}});
   }
 
-  put(params: CJRequestParams): Promise<CJResponse> {
+  put(params: RequestParamsInterface): Promise<ResponseFormatInterface> {
     return this.client.request({ ...params, ...{method: 'put'}});
   }
 
-  delete(params: CJRequestParams): Promise<CJResponse> {
+  delete(params: RequestParamsInterface): Promise<ResponseFormatInterface> {
     return this.client.request({ ...params, ...{method: 'delete'}});
   }
 }
