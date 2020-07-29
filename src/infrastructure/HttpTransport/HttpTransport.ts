@@ -4,7 +4,7 @@ import { HttpTransportInterface } from './HttpTransport.interface';
 import { ResponseFormatInterface } from '.';
 
 export class HttpTransport implements HttpTransportInterface {
-  client: RequestInterface;
+  protected client: RequestInterface;
 
   constructor(client: RequestInterface) {
     this.client = client;
