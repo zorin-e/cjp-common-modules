@@ -27,3 +27,5 @@ export {
   StorageResultInterface,
   StorageMock
 } from "./infrastructure/Storage"
+
+export * as ROLES from "./constants/roles"
