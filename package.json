@@ -1,13 +1,17 @@
 {
   "name": "@otp/cjp-common-modules",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "",
-  "main": "dist/app.js",
-  "types": "dist/app.d.ts",
+  "main": "app.js",
+  "types": "app.d.ts",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server",
-    "build": "NODE_ENV=production webpack",
-    "test:unit": "jest"
+    "build": "NODE_ENV=production webpack && cp package.json dist/",
+    "test:unit": "jest",
+    "pub": "npm run build && npm publish dist"
+  },
+  "publishConfig": {
+    "registry": "https://nexus.isb/repository/pos-nonprod-npm-hosted/"
   },
   "author": {
     "name": "Egor Zorin",
