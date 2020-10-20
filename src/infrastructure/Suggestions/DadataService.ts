@@ -9,10 +9,10 @@ export default class DadataService implements SuggestionsService {
   }
 
   request(props: SuggestionsServiceProps) {
-    const { query, resource, suggestType = "suggest", parts = [] } = props;
+    const { query, resource, suggestType = "suggest", params } = props;
     return axios.post(
       `https://suggestions.dadata.ru/suggestions/api/4_1/rs/${suggestType}/${resource}`,
-      { query, parts },
+      { query, ...params },
       {
         headers: {
           Authorization: `Token ${this.apiKey}`
