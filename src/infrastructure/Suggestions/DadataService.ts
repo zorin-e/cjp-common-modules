@@ -11,7 +11,7 @@ export default class DadataService implements SuggestionsService {
   request(props: SuggestionsServiceProps) {
     const { query, resource, suggestType = "suggest", parts = [] } = props;
     return axios.post(
-      `http://suggestions.dadata.ru/suggestions/api/4_1/rs/${suggestType}/${resource}`,
+      `https://suggestions.dadata.ru/suggestions/api/4_1/rs/${suggestType}/${resource}`,
       { query, parts },
       {
         headers: {
