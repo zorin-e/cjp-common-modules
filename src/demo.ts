@@ -14,8 +14,12 @@ if (module.hot) {
 
   const transport = transportCreator();
 
-  const { data } = await suggestions.value({ query: "ОТП", resource: "party" });
-  console.log(data);
+  const { data } = await suggestions.value({
+    query: "ОТП",
+    resource: "party",
+    params: { kpp: "123456789" }
+  });
+  console.log('d', data);
 
 
 
