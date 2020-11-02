@@ -6,7 +6,7 @@ import { RequestParamsInterface } from './RequestParams.interface';
 import { ResponseFormatInterface, HttpParamsInterface } from '.';
 
 export class AxiosClient implements RequestInterface {
-  private client: AxiosInstance
+  protected client: AxiosInstance
 
   constructor(headers: HttpParamsInterface) {
     this.client = axios.create({
@@ -20,7 +20,7 @@ export class AxiosClient implements RequestInterface {
 
   async request(params: RequestParamsInterface) : Promise<ResponseFormatInterface> {
     let _method: string = params.method || 'get';
-    let _payload: object | undefined = _method === 'get' ? { params: params.payload } : params.payload;
+    let _payload: object | undefined | string = _method === 'get' ? { params: params.payload } : params.payload;
     let _request: AxiosRequestConfig = {
       url: params.url,
       method: ( _method as Method),
