@@ -8,4 +8,13 @@ import { Response } from './Response'
 import { HttpParamsInterface } from './HttpParams.interface'
 
 
-export { ResponseFormatInterface, HttpTransport, AxiosClient, HttpTransportInterface, RequestInterface, RequestParamsInterface, Response, HttpParamsInterface };
+export {
+  ResponseFormatInterface,
+  HttpTransport,
+  AxiosClient,
+  HttpTransportInterface,
+  RequestInterface,
+  RequestParamsInterface,
+  Response,
+  HttpParamsInterface
+};
