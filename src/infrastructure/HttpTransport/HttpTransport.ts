@@ -25,4 +25,8 @@ export class HttpTransport implements HttpTransportInterface {
   delete(params: RequestParamsInterface): Promise<ResponseFormatInterface> {
     return this.client.request({ ...params, ...{method: 'delete'}});
   }
+
+  init(client: RequestInterface) {
+    this.client = client;
+  }
 }

@@ -2,5 +2,5 @@
 export interface RequestParamsInterface {
     url: string;
     method?: string;
-    payload?: object;
+    payload?: object | string;
 }
