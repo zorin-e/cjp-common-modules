@@ -15,13 +15,16 @@ export class AxiosClient implements RequestInterface {
   protected client: AxiosInstance
 
   constructor(headers: HttpParamsInterface, interceptors?: InterceptorHandlers) {
-    this.client = axios.create({
+    const requestHeaders: { headers: {[key: string]: any} } = {
       headers: {
         'Accept': headers.accept,
-        'Content-Type': headers.contentType,
-        'Authorization': headers.authorization
+        'Content-Type': headers.contentType
       }
-    });
+    }
+
+    if (headers.authorization) requestHeaders.headers['Authorization'] = headers.authorization
+
+    this.client = axios.create(requestHeaders);
 
     if (interceptors) this.interceptResponse(interceptors)
   }
