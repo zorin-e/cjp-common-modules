@@ -28,7 +28,7 @@ export class LocalTokenRepository implements Connection {
     return new Promise(async (resolve, reject) => {
       try {
         const { payload } = await this.transport.post({
-          url: "/keycloak/auth/realms/cjpartners/protocol/openid-connect/token",
+          url: "/auth/realms/cjpartners/protocol/openid-connect/token",
           payload: qs.stringify({
             grant_type: REFRESH_TOKEN,
             client_id: "platform",
