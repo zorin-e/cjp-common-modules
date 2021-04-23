@@ -1,3 +1,4 @@
 export const BANK_ADMIN = "ROLE_BANK_ADMIN";
 export const BROKER_ADMIN = "ROLE_BROKER_ADMIN";
 export const BROKER_SPEC = "ROLE_BROKER_SPEC";
+export const TRDE_ORG = "ROLE_TRADE_ORG_USER";
