@@ -1,5 +1,6 @@
 import { Suggestions, DadataService } from "@/infrastructure/Suggestions";
 import transportCreator from './httpTransport';
+import { checkBankAccount, checkCorrespondentAccount } from "@/infrastructure/checkBankData"
 
 if (module.hot) {
   module.hot.accept();
@@ -35,7 +36,11 @@ if (module.hot) {
   const newPost = await transport.post({ url: 'http://jsonplaceholder.typicode.com/posts', payload: { title: "title" } })
   console.log("newPost:", newPost);
 
+  const isBankAccountRight = checkBankAccount({ account: '30301810800006003800', bik: '044525225' })
+  const isCorrAccountRight = checkCorrespondentAccount({ account: '30101810400000000225', bik: '044525225' })
 
+  console.log('isBankAccountRight', isBankAccountRight);
+  console.log('isCorrAccountRight', isCorrAccountRight);
 
 // using modules ...
 })();
