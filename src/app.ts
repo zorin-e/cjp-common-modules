@@ -41,3 +41,5 @@ export { checkRolesMatching } from "./infrastructure/checkRolesMatching"
 
 export * as ROLES from "./constants/roles"
 export { ACCESS_TOKEN, REFRESH_TOKEN } from "./constants/token"
+
+export { checkBankAccount, checkCorrespondentAccount } from "./infrastructure/checkBankData"
